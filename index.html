@@ -22,15 +22,14 @@
 
         <!-- Add your site or application content here -->
 	<div class="container">
-        <form role="form" class="form-horizontal">
+        <form role="form" class="form-horizontal" id="main-form">
             <div class="panel-group" id="accordion">
   <fieldset class="panel panel-default" id="accident">
     <div class="panel-heading">
-      <legend class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Accident Information
+      <legend class="panel-title">
+          Accident Information</legend>
         </a>
-      </legend>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in">
       <div class="panel-body">
@@ -45,67 +44,68 @@
                     <div class="col-md-4"><input type="time" name="acc_time" id="acc_time" class="form-control input-md" required /></div>
                 </div>
                 <div class="form-group">
-                    <label for="acc_time" class="col-md-4 control-label">Weather: </label>
-                    <div class="col-md-4"><input type="text" name="acc_time" id="acc_time" class="form-control input-md" /></div>
+                    <label for="acc_weather" class="col-md-4 control-label">Weather: </label>
+                    <div class="col-md-4"><input type="text" name="acc_weather" id="acc_weather" class="form-control input-md" /></div>
                 </div>
                 <div class="form-group">
-                    <label for="acc_time" class="col-md-4 control-label">Location: </label>
-                    <div class="col-md-4"><input type="text" name="acc_time" id="acc_time" class="form-control input-md" required /></div>
+                    <label for="acc_loc" class="col-md-4 control-label">Location: </label>
+                    <div class="col-md-4"><input type="text" name="acc_loc" id="acc_loc" class="form-control input-md" required /></div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Description: </label>
-                    <div class="col-md-4"><textarea class="form-control" required></textarea></div>
+                    <label class="col-md-4 control-label" for="acc_desc">Description: </label>
+                    <div class="col-md-4"><textarea class="form-control" name="acc_desc" id="acc_desc" required></textarea></div>
                 </div>
       </div>
     </div>
   </fieldset><!-- end #accident -->
   <fieldset class="panel panel-default" id="other_vehicles">
     <div class="panel-heading">
-      <legend class="panel-title">
+      
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+            <legend class="panel-title">
           Other Vehicles
-        </a>
       </legend>
+        </a>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse">
       <div class="panel-body">
                 <h4>Other Person's Information</h4>
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Name</label>
-                    <div class="col-md-4"><input class="form-control input-md" /></div>
+                    <label class="col-md-4 control-label" for="other_name">Name</label>
+                    <div class="col-md-4"><input class="form-control input-md" name="other_name" id="other_name" /></div>
                 </div><!-- end .form-group --> 
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Address</label>
-                    <div class="col-md-4"><input class="form-control input-md" /></div>
+                    <label class="col-md-4 control-label" for="other_add">Address</label>
+                    <div class="col-md-4"><input class="form-control input-md" name="other_add" id="other_add" /></div>
                 </div><!-- end .form-group --> 
                 <div class="form-group">
                     <label class="col-md-4 control-label">Phone</label>
-                    <div class="col-md-4"><input class="form-control input-md" /></div>
+                    <div class="col-md-4"><input class="form-control input-md" name="other_phone" id="other_phone" /></div>
                 </div><!-- end .form-group -->
                 <div class="form-group">
                     <label class="col-md-4 control-label">Email</label>
-                    <div class="col-md-4"><input class="form-control input-md" /></div>
+                    <div class="col-md-4"><input class="form-control input-md" name="other_email" /></div>
                 </div><!-- end .form-group -->
                 <div class="form-group">
                     <label class="col-md-4 control-label">License</label>
-                    <div class="col-md-4"><input class="form-control input-md" /></div>
+                    <div class="col-md-4"><input class="form-control input-md" name="other_lic" /></div>
                 </div><!-- end .form-group -->   
                 <div class="form-group">
                     <label class="col-md-4 control-label">Comments</label>
-                    <div class="col-md-4"><textarea class="form-control input-md"></textarea></div>
+                    <div class="col-md-4"><textarea class="form-control input-md" name="other_com"></textarea></div>
                 </div><!-- end .form-group --> 
                 <h4>Insurance Information</h4>
                 <div class="form-group">
                     <label class="col-md-4 control-label">Company</label>
-                    <div class="col-md-4"><input class="form-control input-md" type="text"/></div>
+                    <div class="col-md-4"><input class="form-control input-md" type="text" name="other_ins"/></div>
                 </div><!-- end .form-group --> 
                 <div class="form-group">
                     <label class="col-md-4 control-label">Policy Number</label>
-                    <div class="col-md-4"><input class="form-control input-md" type="text" /></div>
+                    <div class="col-md-4"><input class="form-control input-md" type="text" name="other_policy"/></div>
                 </div><!-- end .form-group --> 
                 <div class="form-group">
                     <label class="col-md-4 control-label">Phone Number</label>
-                    <div class="col-md-4"><input class="form-control input-md" type="tel"/></div>
+                    <div class="col-md-4"><input class="form-control input-md" type="tel" name="other_num"/></div>
                 </div><!-- end .form-group --> 
           
       </div>
@@ -113,81 +113,81 @@
   </fieldset><!-- end #other_vehicles -->
                 <fieldset class="panel panel-default" id="witness">
                     <div class="panel-heading">
-                        <legend class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                        <legend class="panel-title">
                             Witness Information
-                            </a>
                         </legend>
+                            </a>
                     </div>
                         <div id="collapseThree" class="panel-collapse collapse">
                         <div class="panel-body">
                             <h4>Witness 1</h4>
                             <div class="form-group">
                             <label class="col-md-4 control-label">Name</label>
-                            <div class="col-md-4"><input class="form-control input-md" /></div>
+                            <div class="col-md-4"><input class="form-control input-md" name="wit_1_name"/></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                             <label class="col-md-4 control-label">Phone</label>
-                            <div class="col-md-4"><input class="form-control input-md" type="tel" /></div>
+                            <div class="col-md-4"><input class="form-control input-md" type="tel" name="wit_1_phone"/></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                             <label class="col-md-4 control-label">Comments</label>
-                            <div class="col-md-4"><textarea class="form-control input-md"></textarea></div>
+                            <div class="col-md-4"><textarea class="form-control input-md" name="wit_1_com"></textarea></div>
                             </div><!-- end .form-group --> 
                             <h4>Witness 2</h4>
                             <div class="form-group">
                             <label class="col-md-4 control-label">Name</label>
-                            <div class="col-md-4"><input class="form-control input-md" /></div>
+                            <div class="col-md-4"><input class="form-control input-md" name="wit_2_name" /></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                             <label class="col-md-4 control-label">Phone</label>
-                            <div class="col-md-4"><input class="form-control input-md" type="tel" /></div>
+                            <div class="col-md-4"><input class="form-control input-md" type="tel" name="wit_2_phone" /></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                             <label class="col-md-4 control-label">Comments</label>
-                            <div class="col-md-4"><textarea class="form-control input-md"></textarea></div>
+                            <div class="col-md-4"><textarea class="form-control input-md" name="wit_2_com"></textarea></div>
                             </div><!-- end .form-group --> 
                             <h4>Witness 3</h4>
                             <div class="form-group">
                             <label class="col-md-4 control-label">Name</label>
-                            <div class="col-md-4"><input class="form-control input-md" /></div>
+                            <div class="col-md-4"><input class="form-control input-md" name="Wit_3_name"/></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                             <label class="col-md-4 control-label">Phone</label>
-                            <div class="col-md-4"><input class="form-control input-md" type="tel" /></div>
+                            <div class="col-md-4"><input class="form-control input-md" type="tel" name="wit_3_phone"/></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                             <label class="col-md-4 control-label">Comments</label>
-                            <div class="col-md-4"><textarea class="form-control input-md"></textarea></div>
+                            <div class="col-md-4"><textarea class="form-control input-md" name="wit_3_com"></textarea></div>
                             </div><!-- end .form-group --> 
                         </div>
                     </div>
                 </fieldset><!-- end #witness -->
                 <fieldset class="panel panel-default" id="police">
                     <div class="panel-heading">
-                        <legend class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                        <legend class="panel-title">
                             Police Information
-                            </a>
                         </legend>
+                            </a>
                     </div>
                     <div id="collapseFour" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Case Number</label>
-                                <div class="col-md-4"><input class="form-control input-md" /></div>
+                                <div class="col-md-4"><input class="form-control input-md" name="case_num"/></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Officer's Name</label>
-                                <div class="col-md-4"><input class="form-control input-md" /></div>
+                                <div class="col-md-4"><input class="form-control input-md" name="officer"/></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Badge Number</label>
-                                <div class="col-md-4"><input class="form-control input-md" /></div>
+                                <div class="col-md-4"><input class="form-control input-md" name="badge"/></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Phone</label>
-                                <div class="col-md-4"><input class="form-control input-md" type="tel" /></div>
+                                <div class="col-md-4"><input class="form-control input-md" type="tel" name="policenumber" /></div>
                             </div><!-- end .form-group --> 
                         
                         </div>
@@ -195,44 +195,44 @@
                 </fieldset><!-- end #police -->
                 <fieldset class="panel panel-default" id="personal">
                     <div class="panel-heading">
-                        <legend class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                        <legend class="panel-title">
                             Your Information
-                            </a>
                         </legend>
+                            </a>
                     </div>
                     <div id="collapseFive" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Name</label>
-                                <div class="col-md-4"><input class="form-control input-md" /></div>
+                                <div class="col-md-4"><input class="form-control input-md" name="client_name" required/></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Address</label>
-                                <div class="col-md-4"><input class="form-control input-md" /></div>
+                                <div class="col-md-4"><input class="form-control input-md" name="client_add" required /></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">City/State</label>
-                                <div class="col-md-4"><input class="form-control input-md" /></div>
+                                <div class="col-md-4"><input class="form-control input-md" name="client_city" required/></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Phone</label>
-                                <div class="col-md-4"><input class="form-control input-md" /></div>
+                                <div class="col-md-4"><input class="form-control input-md" name="client_phone" required/></div>
                             </div><!-- end .form-group --> 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Email</label>
-                                <div class="col-md-4"><input class="form-control input-md" type="email" /></div>
+                                <div class="col-md-4"><input class="form-control input-md" type="email" name="client_email" required/></div>
                             </div><!-- end .form-group -->
                             </div>
                         </div>
                 </fieldset><!-- end #personal -->
                 <fieldset class="panel panel-default" id="vehicle">
                     <div class="panel-heading">
-                        <legend class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                        <legend class="panel-title">
                             Vehicle Information
-                            </a>
                         </legend>
+                            </a>
                     </div>
                     <div id="collapseSix" class="panel-collapse collapse">
                         <div class="panel-body">
@@ -265,11 +265,11 @@
                 </fieldset><!-- end #vehicle -->
                 <fieldset class="panel panel-default" id="photo">
                     <div class="panel-heading">
-                        <legend class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+                        <legend class="panel-title">
                             Photos for Evidence
-                            </a>
                         </legend>
+                            </a>
                     </div>
                     <div id="collapseSeven" class="panel-collapse collapse">
                         <div class="panel-body">
@@ -290,11 +290,11 @@
                 </fieldset><!-- end #photo -->
                 <fieldset class="panel panel-default" id="vehicle">
                     <div class="panel-heading">
-                        <legend class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+                        <legend class="panel-title">
                             Additional Notes
-                            </a>
                         </legend>
+                            </a>
                     </div>
                     <div id="collapseEight" class="panel-collapse collapse">
                         <div class="panel-body">
@@ -305,12 +305,38 @@
                     </div>
                 </fieldset><!-- end #notes -->
 </div>
-            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+            <button type="submit" class="btn btn-lg btn-primary" id="submit-btn">Submit</button>
         </form>
     </div>
         <script src="js/vendor/jquery-1.10.2.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-
+        <script type="text/javascript">
+            var userData = {};
+            
+            function parseForm(formName) {
+                $.each($(formName).serializeArray(), function(i, field) {
+                    userData[this.name] = field.value;
+                });
+            };
+            
+            $("#main-form").submit(function(event) {
+                alert("submit successful");
+                parseForm(this);
+                $.each(userData, function(key, value) {
+                    if (value != '') {
+                    console.log(key + ": " + value);
+                    }
+                });
+                document.addEventListener('deviceready', function () {
+                    window.plugin.email.open({
+                        to: ['andy@goinglocalapps.com'],
+                        subject: 'Testing!',
+                        body: 'The date of your accident was ' + userData.acc_date,
+                    }, callback, scope);
+                }, false);
+                event.preventDefault();
+            });
+        </script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

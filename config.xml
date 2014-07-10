@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+            xmlns:gap = "http://phonegap.com/ns/1.0"
+            id = "com.goinglocalapps.personalInjuryTest"
+            version = "0.0.1"
+            
+            <name>Personal Injury Test App</name>
+            <description>A test to send emails from Phonegap form</description>
+
+            <author href="http://www.goinglocalapps.com" email="andy@goinglocalapps.com">
+                Andy Meyer
+            </author>
+
+            <gap:plugin name="de.appplant.cordova.plugin.email-composer" />
+</widget>
