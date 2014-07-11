@@ -310,6 +310,7 @@
     </div>
         <script src="js/vendor/jquery-1.10.2.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript">
             var userData = {};
             
@@ -327,13 +328,7 @@
                     console.log(key + ": " + value);
                     }
                 });
-                document.addEventListener('deviceready', function () {
-                    window.plugin.email.open({
-                        to: ['andy@goinglocalapps.com'],
-                        subject: 'Testing!',
-                        body: 'The date of your accident was ' + userData.acc_date,
-                    }, callback, scope);
-                }, false);
+                window.plugin.email.open();
                 event.preventDefault();
             });
         </script>
