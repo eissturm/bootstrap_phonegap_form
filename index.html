@@ -323,18 +323,27 @@
             var pictureSource;
             var destinationType;
             
+            document.addEventListener("deviceready", onDeviceReady, false);
+            
+            function onDeviceReady() {
+                pictureSource = navigator.camera.PictureSourceType;
+                destinationType = navigator.camera.DestinationType;
+            }
+            
             function onPhotoURISuccess(imageURI) {
                 userData.photos[userData.photos.length] = imageURI;
             }
             
             function capturePhoto() {
+                alert("Capturing Photo");
                 navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50 });
             }
             
             function getPhoto(source) {
-                navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-                                                                         desinationType: destinationType.FILE_URI,
-                                                                       sourceType: source });
+                // Retrieve image file location from specified source
+                navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+                destinationType: destinationType.FILE_URI,
+                sourceType: source });
             }
             
             function onFail(message) {
