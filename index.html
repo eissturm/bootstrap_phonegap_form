@@ -318,15 +318,12 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript">
             var userData = {};
+            userData.photos = [];
             var numPhotos;
             var pictureSource;
             var destinationType;
             
-            navigator.camera.getPicture(onSuccess, onFail, { quality: 50 });
-            
             function onPhotoURISuccess(imageURI) {
-                numPhotos++;
-                userData.photos = [];
                 userData.photos[userData.photos.length] = imageURI;
             }
             
@@ -340,14 +337,14 @@
                                                                        sourceType: source });
             }
             
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
+            
             function parseForm(formName) {
                 $.each($(formName).serializeArray(), function(i, field) {
                     userData[this.name] = field.value;
                 });
-            }
-            
-            function onFail(message) {
-                alert('Failed because: ' + message);
             }
             
             $("#main-form").submit(function(event) {
@@ -403,7 +400,7 @@
                                 'Client VIN: ' + userData.car_vin + '\n' +
                                 'Client Vehicle Color: ' + userData.car_color + '\n' +
                                 'Client Notes: ' + userData.client_notes,
-                    attatchments: userData.photos
+                    attachments: userData.photos
                     }
                 );
                 event.preventDefault();
