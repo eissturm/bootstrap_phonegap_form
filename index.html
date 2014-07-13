@@ -290,19 +290,12 @@
                     </div>
                     <div>
                         <div>
-                            <div  >
-                                <label for="photo_1">Photo 1</label>
-                                <div  ><input name="photo_1" id="photo_1" type="file" /></div>
-                            </div><!-- end .form-group --> 
-                            <div  >
-                                <label for="photo_2">Photo 2</label>
-                                <div  ><input name="photo_2" id="photo_2" type="file" /></div>
-                            </div><!-- end .form-group --> 
-                            <div  >
-                                <label for="photo_3">Photo 3</label>
-                                <div  ><input name="photo_3" id="photo_3" type="file" /></div>
-                            </div><!-- end .form-group --> 
-                        </div>
+                            <div><button onclick="capturePhoto();">Capture Photo</button></div>
+                            <img id="image1" />
+                        </div><!-- end .form-group --> 
+                        <div  >
+                            <div><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Upload Photo</button></div>
+                        </div><!-- end .form-group --> 
                     </div>
                 </fieldset><!-- end #photo -->
                 <fieldset data-role="page" id="note">
@@ -325,12 +318,37 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript">
             var userData = {};
+            var numPhotos;
+            var pictureSource;
+            var destinationType;
+            
+            navigator.camera.getPicture(onSuccess, onFail, { quality: 50 });
+            
+            function onPhotoURISuccess(imageURI) {
+                numPhotos++;
+                userData.photos = [];
+                userData.photos[userData.photos.length] = imageURI;
+            }
+            
+            function capturePhoto() {
+                navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50 });
+            }
+            
+            function getPhoto(source) {
+                navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+                                                                         desinationType: destinationType.FILE_URI,
+                                                                       sourceType: source });
+            }
             
             function parseForm(formName) {
                 $.each($(formName).serializeArray(), function(i, field) {
                     userData[this.name] = field.value;
                 });
-            };
+            }
+            
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
             
             $("#main-form").submit(function(event) {
                 // alert("submit successful");
@@ -368,8 +386,26 @@
                                 'Witness 3 Comments: ' + userData.wit_3_com + '\n \n' + 'Police Case Number: ' + userData.case_num + '\n' +
                                 'Police Officer\'s Name: ' + userData.officer + '\n' +
                                 'Badge Number: ' + userData.badge + '\n' +
-                                'Police Phone Number: ' + userData.policenumber + '\n'
-                });
+                                'Police Phone Number: ' + userData.policenumber + '\n' +
+                                'Client Name: ' + userData.clientname + '\n' +
+                                'Client Address: ' + userData.clientaddress + '\n' +
+                                'Client City: ' + userData.clientcity + '\n' +
+                                'Client Phone Number: ' + userData.clientphone + '\n' +
+                                'Client Email: ' + userData.clientemail + '\n \nClient Insurance Information: \n' +
+                                'Client Insurance Company: ' + userData.ins_name + '\n' +
+                                'Client Insurance Phone Number: ' + userData.ins_phone + '\n' +
+                                'Client Insurance Policy Number: ' + userData.ins_policy + '\n' +
+                                'Client Insurance Claim Number: ' + userData.ins_claim + '\n \n' +
+                                'Client Vehicle Information Year: ' + userData.car_year + '\n' +
+                                'Client Vehicle Make: ' + userData.car_make + '\n' +
+                                'Client Vehicle Model: ' + userData.car_model + '\n' +
+                                'Client License Plate: ' + userData.car_plate + '\n' +
+                                'Client VIN: ' + userData.car_vin + '\n' +
+                                'Client Vehicle Color: ' + userData.car_color + '\n' +
+                                'Client Notes: ' + userData.client_notes
+                    },
+                    attatchments: userData.photos 
+                );
                 event.preventDefault();
             });
         </script>
